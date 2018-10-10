@@ -1,0 +1,37 @@
+<div class="position-relative">
+  <div class="droppable-space-child"
+  #dropMid
+  dnd-droppable
+  [dropZones]="['nativeElement', 'component', 'node', 'Class']"
+  (onDropSuccess)="onDropSucessAddChild($event)" 
+  *ngIf="isDragging()">
+  </div>
+<div class="droppable-space-sibling"
+     dnd-droppable
+     [dropZones]="['nativeElement', 'component', 'node']"
+     (onDropSuccess)="onDropSucessSibling($event)"
+     *ngIf="isDragging()">
+</div>
+<div class="p-1">
+  <div class="d-inline-flex align-items-center w-100"
+      dnd-draggable
+      [dragData]="node"
+      [dropZones]="['node']">
+    <button type="button"
+            class="caret-btn mr-2"
+            *ngIf="node.children.length > 0"
+            (click)="collapsed = !collapsed">
+      <i *ngIf="collapsed" class="fa fa-caret-right"></i>
+      <i *ngIf="!collapsed" class="fa fa-caret-down"></i>
+    </button>
+    <img [src]="nodeImg" class="mr-2" aria-hidden="true">
+    <span class="d-inline-block w-100 d-flex justify-content-between">
+      <span>{{node.tagName}}</span>
+    </span>
+  </div>
+  <div class="children pl-4 mt-1" *ngIf="node.children?.length > 0" [hidden]="collapsed">
+    <app-tree-node class="mt-2" *ngFor="let child of node.children"
+              [node]="child"></app-tree-node>
+  </div>
+</div>
+</div>
