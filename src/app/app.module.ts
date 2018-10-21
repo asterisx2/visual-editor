@@ -7,6 +7,7 @@ import { SharedModule } from './shared/shared.module';
 import {
   DfAccordionModule
 } from '@devfactory/ngx-df';
+import { DfSplitViewModule } from '@devfactory/ngx-df/split-view';
 
 @NgModule({
   declarations: [
@@ -17,9 +18,11 @@ import {
     BrowserModule,
     SharedModule,
     DfAccordionModule.forRoot(),
+    DfSplitViewModule.forRoot(),
   ],
   exports: [
     DfAccordionModule,
+    DfSplitViewModule
   ],
   providers: [],
   bootstrap: [AppComponent]

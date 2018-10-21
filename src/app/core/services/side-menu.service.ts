@@ -11,7 +11,7 @@ import { classes } from '../models/menu/classes.data';
 })
 export class SideMenuService {
 
-  public getToolMenuGroups(): Observable<ToolMenuGroup[]> {
-    return of([nativeElements, components, classes]);
+  public getToolMenuGroups(): Observable<{ [key: string]: ToolMenuGroup }> {
+    return of({nativeElements, components, classes});
   }
 }
