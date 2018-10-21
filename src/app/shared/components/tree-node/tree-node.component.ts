@@ -27,11 +27,11 @@ export class TreeNodeComponent implements OnInit {
 
   public onDropSucessAddChild(dragData: TagName | Class) {
     if (dragData instanceof TagName) {
-      // Update service
+      // Update service and add node
       this.service.addChild(new TagNode(dragData.name), this.node.parentIdentifier);
     } else if (dragData instanceof Class) {
       this.node.class.push(dragData.name);
-      // Update service
+      // Update service and add class
       this.service.addClass(this.node.uniqueIdentifier, dragData.name);
     }
   }
