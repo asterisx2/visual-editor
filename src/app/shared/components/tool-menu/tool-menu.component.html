@@ -1,17 +1,5 @@
-<df-accordion>
-  <df-accordion-panel *ngFor="let gi of groupItems">
-    <df-accordion-header>
-      <df-accordion-header-title>
-        {{gi.header}}
-      </df-accordion-header-title>
-    </df-accordion-header>
-    <df-accordion-content>
-      <p *ngFor="let mi of gi.menuItems" 
-      dnd-draggable
-      [dragData]="mi"
-      [dropZones]="[mi.type.toString()]">
-        {{mi.header}}
-      </p>
-    </df-accordion-content>
-  </df-accordion-panel>
-</df-accordion>
+<div>
+  <p *ngFor="let mi of gi.menuItems" dnd-draggable [dragData]="mi" [dropZones]="[mi.type.toString()]">
+    {{mi.header}}
+  </p>
+</div>
